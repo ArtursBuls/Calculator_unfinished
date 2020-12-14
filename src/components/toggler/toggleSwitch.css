@@ -1,0 +1,40 @@
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    height: 22px;
+}
+.toggle-switch input[type="checkbox"] {
+    display: none;
+}
+.toggle-switch .switch {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 15px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: background-color 0.2s ease;
+}
+.toggle-switch .switch::before {
+    position: absolute;
+    content: "Standard";
+    left: 0px;
+    right:0px;
+    top: 0px;
+    width: 0px;
+    height: 0px;
+    background-color: #aaa;
+    transition: transform 0.3s ease;
+    color: red;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch::before {
+    transform: translateX(336px);
+    content: 'Scientific';
+    color: black;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch {
+    background-color: red; 
+}

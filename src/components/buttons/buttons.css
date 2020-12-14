@@ -1,0 +1,79 @@
+
+.rounded-button {
+    position: relative;
+    border-radius: 50%;
+    border: none;
+    width: 70px;
+    height: 70px;
+}
+.rounded-button:hover {
+    cursor: pointer;
+    box-shadow: 1px 5px #666;
+}
+.rounded-button:focus {
+    outline: none;
+    transform: translateY(4px);
+    box-shadow: 1px 5px #666;
+    cursor: unset;
+}
+
+.prolate-button {
+    position: relative;
+    border-radius: 35px;
+    border: none;
+    width: 172px;
+    height: 70px;
+    font-size: 42px;
+    text-align: start;
+    padding-left: 27px;
+}
+.prolate-button:hover {
+    cursor: pointer;
+    box-shadow: 1px 5px #666;
+}
+.prolate-button:focus {
+    outline: none;
+    box-shadow: 1px 5px #666;
+    transform: translateY(4px);
+}
+.rectangle-button {
+    position: relative;
+    width: 200px;
+    height: 22px;
+    background-color:white;
+    border-radius: 10px;
+    border: none;
+    line-height: 1;
+    font-size: 20px;
+    color: grey;
+}
+.rectangle-button:hover {
+    cursor: pointer;
+    box-shadow: 2px 5px #666;
+}
+.rectangle-button:focus {
+    outline: none;
+    transform: translateY(4px);
+    background-color: red;
+    box-shadow: 2px 5px #666;
+    color: white;
+    cursor: unset;
+}
+.rounded-button-small {
+    position: relative;
+    outline: none;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+.rounded-button-small:hover {
+    cursor: pointer;
+}
+.rounded-button-small:focus {
+    box-shadow: none;
+    transform: scale(1.2) rotate(15deg);
+    cursor: unset;
+}
+
