@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'flexboxgrid';
 import { Rounded } from './buttons/rounded';
+import { RoundedNumbers } from '../components/buttons/roundedNumbers';
 import { Small } from './buttons/small';
 import { Equal } from '../components/signs/equal';
 import { Dot } from '../components/signs/dot';
@@ -16,8 +17,24 @@ import { Sun } from './sunIcon/sun';
 import { Moon } from './moonIcon/moon';
 import { UserInput } from '../components/inputs/userInput';
 import '../components/calculator.css';
+import '../components/inputs/userInput.css';
 
 export function Calculator() {
+    const [input, setInput] = useState<string[]>([]);
+
+    const inputHandler = (label: string) => {
+        if (input.length < 20) {
+            setInput([...input, label]);
+        }
+    }
+    const inputClearAllHandler = () => {
+        setInput([...input].slice(0, -1));
+    }
+
+    const plusMinusHandler = () => {
+        console.log('have no ideas...so far')
+    }
+
     return (
         <div className="box">
             <div>
@@ -38,7 +55,7 @@ export function Calculator() {
                 <div className="row start-xs">
                     <div className="col-xs-12">
                         <Small
-                            label={<Sun />}
+                            label={<Moon />}
                         />
                     </div>
                 </div>
@@ -46,11 +63,15 @@ export function Calculator() {
                 <div className="row between-xs">
                     <div className="col-xs-1">
                         <Small
-                            label={<Moon />}
+                            label={<Sun />}
                         />
                     </div>
-                    <div className="col-xs-8">
-                        <UserInput />
+                    <div className="col-xs-11">
+                        <h3
+                            className='input'
+                        >
+                            {input}
+                        </h3>
                     </div>
                 </div>
                 <div className="row end-xs">
@@ -58,7 +79,7 @@ export function Calculator() {
                         <h3
                             className='result'
                         >
-                            240
+                            0
                         </h3>
                     </div>
                 </div>
@@ -71,6 +92,7 @@ export function Calculator() {
                             label={'C'}
                             color={'white'}
                             fontSize={"40px"}
+                            setNumbers={() => inputClearAllHandler()}
                         />
                     </div>
                     <div className="col-xs-3">
@@ -79,6 +101,7 @@ export function Calculator() {
                             label={<Percent />}
                             color={'white'}
                             fontSize={"0px"}
+                            setNumbers={() => inputHandler('%')}
                         />
                     </div>
                     <div className="col-xs-3">
@@ -87,6 +110,7 @@ export function Calculator() {
                             label={<PlusMinus />}
                             color={'white'}
                             fontSize={"0px"}
+                            setNumbers={() => plusMinusHandler()}
                         />
                     </div>
                     <div className="col-xs-3">
@@ -95,33 +119,38 @@ export function Calculator() {
                             label={<Divide />}
                             color={'white'}
                             fontSize={"0px"}
+                            setNumbers={() => inputHandler('/')}
                         />
                     </div>
                 </div>
                 <br />
                 <div className="row">
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'7'}
+                            label={"7"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler('7')}
                         />
                     </div>
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'8'}
+                            label={"8"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler("8")}
                         />
                     </div>
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'9'}
+                            label={"9"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler('9')}
+
                         />
                     </div>
                     <div className="col-xs-3">
@@ -130,33 +159,37 @@ export function Calculator() {
                             label={<Times />}
                             color={'white'}
                             fontSize={"0px"}
+                            setNumbers={() => inputHandler("*")}
                         />
                     </div>
                 </div>
                 <br />
                 <div className="row">
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'4'}
+                            label={"4"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler('4')}
                         />
                     </div>
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'5'}
+                            label={"5"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler('5')}
                         />
                     </div>
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'6'}
+                            label={"6"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler('6')}
                         />
                     </div>
                     <div className="col-xs-3">
@@ -165,33 +198,37 @@ export function Calculator() {
                             label={<Minus />}
                             color={'white'}
                             fontSize={"0px"}
+                            setNumbers={() => inputHandler('-')}
                         />
                     </div>
                 </div>
                 <br />
                 <div className="row">
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'1'}
+                            label={"1"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler('1')}
                         />
                     </div>
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'2'}
+                            label={"2"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler('2')}
                         />
                     </div>
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'lightgrey'}
-                            label={'3'}
+                            label={"3"}
                             color={'black'}
                             fontSize={"40px"}
+                            setNumbers={() => inputHandler('3')}
                         />
                     </div>
                     <div className="col-xs-3">
@@ -200,6 +237,7 @@ export function Calculator() {
                             label={<Plus />}
                             color={'white'}
                             fontSize={"0px"}
+                            setNumbers={() => inputHandler('+')}
                         />
                     </div>
                 </div> <br />
@@ -207,7 +245,8 @@ export function Calculator() {
                     <div className="col-xs-6">
                         <Prolate
                             backgroundColor={'lightgrey'}
-                            label={'0'}
+                            label={"0"}
+                            setNumbers={() => inputHandler('0')}
                         />
                     </div>
                     <div className="col-xs-3">
@@ -216,6 +255,7 @@ export function Calculator() {
                             label={<Dot />}
                             color={'black'}
                             fontSize={"0px"}
+                            setNumbers={() => inputHandler('.')}
                         />
                     </div>
                     <div className="col-xs-3">
@@ -224,6 +264,7 @@ export function Calculator() {
                             label={<Equal />}
                             color={'white'}
                             fontSize={"0px"}
+                            setNumbers={() => inputHandler('=')}
                         />
                     </div>
                 </div>

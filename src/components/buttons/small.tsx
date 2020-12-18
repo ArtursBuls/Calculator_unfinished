@@ -8,7 +8,8 @@ export function Small({ label }: Props) {
     return (
         <div>
             <button
-                className="rounded-button-small">
+                className="rounded-button-small"
+            >
                 {label}
             </button>
         </div>

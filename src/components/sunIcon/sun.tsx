@@ -4,8 +4,8 @@ export function Sun() {
     return (
         <div >
             <svg
-                width="25px"
-                height="25px"
+                width="27px"
+                height="27px"
                 viewBox="0 0 16 16"
                 className="brightness-high-fill"
                 fill="rgba(0, 0, 0, 0.3)"

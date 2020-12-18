@@ -1,7 +1,8 @@
 .input {
+    margin: 0;
     text-align: end;
     border: none;
-    font-size: 20px;
+    font-size: 30px;
     color: grey;
-    height: 30px;
+    
 }
