@@ -15,25 +15,41 @@ import { Prolate } from './buttons/prolate';
 import { Rectangle } from './buttons/rectangle';
 import { Sun } from './sunIcon/sun';
 import { Moon } from './moonIcon/moon';
-// import { UserInput } from '../components/inputs/userInput';
 import '../components/calculator.css';
 import '../components/inputs/userInput.css';
 
 export function Calculator() {
+
     const [input, setInput] = useState<string[]>([]);
 
     const inputHandler = (label: string) => {
-        if (input.length < 18) {
-            setInput([...input, label]);
+        const clonedInput = [...input];
+        clonedInput.push(label);
+        if (input.length < 20) {
+            setInput(clonedInput);
         }
     }
 
     const inputClearLastHandler = () => {
-        setInput([...input].slice(0, -1));
+        const clonedInput = [...input];
+        clonedInput.splice(-1);
+        setInput(clonedInput);
     }
 
     const plusMinusHandler = () => {
-        console.log('have no ideas...so far')
+        const clonedInput = [...input];
+        const alreadyHas = input.some((it) => {
+            return ['0', '+', '/', '*', '%', '=', '.'].includes(it)
+        });
+
+        if (input && !alreadyHas)
+            if (input[0] === '-') {
+                clonedInput.shift()
+            }
+            else {
+                clonedInput.unshift('-')
+            }
+        setInput(clonedInput);
     }
 
     return (
@@ -42,12 +58,14 @@ export function Calculator() {
                 <div className="row">
                     <div className="col-xs-6">
                         <Rectangle
-                            label={'Scientific'}
+                            label={'Standard'}
+                            isFocused={true}
                         />
                     </div>
                     <div className="col-xs-6">
                         <Rectangle
-                            label={'Standard'}
+                            label={'Scientific'}
+                            isFocused={false}
                         />
                     </div>
                 </div>
@@ -56,7 +74,7 @@ export function Calculator() {
                 <div className="row start-xs">
                     <div className="col-xs-12">
                         <Small>
-                            <Moon />
+                            <Sun />
                         </Small>
                     </div>
                 </div>
@@ -64,7 +82,7 @@ export function Calculator() {
                 <div className="row between-xs">
                     <div className="col-xs-1">
                         <Small>
-                            <Sun />
+                            <Moon />
                         </Small>
                     </div>
                     <div className="col-xs-11">
@@ -93,7 +111,7 @@ export function Calculator() {
                             label={'C'}
                             color={'white'}
                             fontSize={"40px"}
-                            setNumbers={() => inputClearLastHandler()}
+                            setNumbers={inputClearLastHandler}
                         />
                     </div>
                     <div className="col-xs-3">
@@ -112,7 +130,7 @@ export function Calculator() {
                             backgroundColor={'black'}
                             color={'white'}
                             fontSize={"0px"}
-                            setNumbers={() => plusMinusHandler()}
+                            setNumbers={plusMinusHandler}
                         >
                             <PlusMinus />
                         </Rounded>

@@ -3,7 +3,6 @@ import '../buttons/buttons.css';
 
 type Props = {
     backgroundColor: string,
-
     color: string,
     fontSize: string,
     setNumbers: () => void
@@ -11,7 +10,6 @@ type Props = {
 
 export const Rounded: FC<Props> = ({
     backgroundColor,
-
     color,
     fontSize,
     setNumbers,

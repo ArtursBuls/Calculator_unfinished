@@ -9,14 +9,12 @@ type Props = {
 export const Prolate: FC<Props> = ({ backgroundColor, label, setNumbers }) => {
 
     return (
-        <div >
-            <button
-                className="prolate-button"
-                style={{ backgroundColor }}
-                onClick={setNumbers}
-            >
-                {label}
-            </button>
-        </div>
+        <button
+            className="prolate-button"
+            style={{ backgroundColor }}
+            onClick={setNumbers}
+        >
+            {label}
+        </button>
     );
 }
