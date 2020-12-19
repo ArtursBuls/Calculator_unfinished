@@ -15,7 +15,7 @@ import { Prolate } from './buttons/prolate';
 import { Rectangle } from './buttons/rectangle';
 import { Sun } from './sunIcon/sun';
 import { Moon } from './moonIcon/moon';
-import { UserInput } from '../components/inputs/userInput';
+// import { UserInput } from '../components/inputs/userInput';
 import '../components/calculator.css';
 import '../components/inputs/userInput.css';
 
@@ -23,11 +23,12 @@ export function Calculator() {
     const [input, setInput] = useState<string[]>([]);
 
     const inputHandler = (label: string) => {
-        if (input.length < 20) {
+        if (input.length < 18) {
             setInput([...input, label]);
         }
     }
-    const inputClearAllHandler = () => {
+
+    const inputClearLastHandler = () => {
         setInput([...input].slice(0, -1));
     }
 
@@ -54,17 +55,17 @@ export function Calculator() {
                 <br /><br /> <br />
                 <div className="row start-xs">
                     <div className="col-xs-12">
-                        <Small
-                            label={<Moon />}
-                        />
+                        <Small>
+                            <Moon />
+                        </Small>
                     </div>
                 </div>
                 <br />
                 <div className="row between-xs">
                     <div className="col-xs-1">
-                        <Small
-                            label={<Sun />}
-                        />
+                        <Small>
+                            <Sun />
+                        </Small>
                     </div>
                     <div className="col-xs-11">
                         <h3
@@ -87,40 +88,46 @@ export function Calculator() {
                 <br />
                 <div className="row">
                     <div className="col-xs-3">
-                        <Rounded
+                        <RoundedNumbers
                             backgroundColor={'black'}
                             label={'C'}
                             color={'white'}
                             fontSize={"40px"}
-                            setNumbers={() => inputClearAllHandler()}
+                            setNumbers={() => inputClearLastHandler()}
                         />
                     </div>
                     <div className="col-xs-3">
                         <Rounded
                             backgroundColor={'black'}
-                            label={<Percent />}
                             color={'white'}
                             fontSize={"0px"}
                             setNumbers={() => inputHandler('%')}
-                        />
+                        >
+                            <Percent />
+                        </Rounded>
+
                     </div>
                     <div className="col-xs-3">
                         <Rounded
                             backgroundColor={'black'}
-                            label={<PlusMinus />}
                             color={'white'}
                             fontSize={"0px"}
                             setNumbers={() => plusMinusHandler()}
-                        />
+                        >
+                            <PlusMinus />
+                        </Rounded>
+
                     </div>
                     <div className="col-xs-3">
                         <Rounded
                             backgroundColor={'red'}
-                            label={<Divide />}
                             color={'white'}
                             fontSize={"0px"}
                             setNumbers={() => inputHandler('/')}
-                        />
+                        >
+                            <Divide />
+                        </Rounded>
+
                     </div>
                 </div>
                 <br />
@@ -150,17 +157,18 @@ export function Calculator() {
                             color={'black'}
                             fontSize={"40px"}
                             setNumbers={() => inputHandler('9')}
-
                         />
                     </div>
                     <div className="col-xs-3">
                         <Rounded
                             backgroundColor={'red'}
-                            label={<Times />}
                             color={'white'}
                             fontSize={"0px"}
                             setNumbers={() => inputHandler("*")}
-                        />
+                        >
+                            <Times />
+                        </Rounded>
+
                     </div>
                 </div>
                 <br />
@@ -195,11 +203,12 @@ export function Calculator() {
                     <div className="col-xs-3">
                         <Rounded
                             backgroundColor={'red'}
-                            label={<Minus />}
                             color={'white'}
                             fontSize={"0px"}
                             setNumbers={() => inputHandler('-')}
-                        />
+                        >
+                            <Minus />
+                        </Rounded>
                     </div>
                 </div>
                 <br />
@@ -234,11 +243,13 @@ export function Calculator() {
                     <div className="col-xs-3">
                         <Rounded
                             backgroundColor={'red'}
-                            label={<Plus />}
                             color={'white'}
                             fontSize={"0px"}
                             setNumbers={() => inputHandler('+')}
-                        />
+                        >
+                            <Plus />
+                        </Rounded>
+
                     </div>
                 </div> <br />
                 <div className="row">
@@ -252,20 +263,24 @@ export function Calculator() {
                     <div className="col-xs-3">
                         <Rounded
                             backgroundColor={'lightgrey'}
-                            label={<Dot />}
                             color={'black'}
                             fontSize={"0px"}
                             setNumbers={() => inputHandler('.')}
-                        />
+                        >
+                            <Dot />
+                        </Rounded>
+
                     </div>
                     <div className="col-xs-3">
                         <Rounded
                             backgroundColor={'red'}
-                            label={<Equal />}
                             color={'white'}
                             fontSize={"0px"}
                             setNumbers={() => inputHandler('=')}
-                        />
+                        >
+                            <Equal />
+                        </Rounded>
+
                     </div>
                 </div>
             </div>

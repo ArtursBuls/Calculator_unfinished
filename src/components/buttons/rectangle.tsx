@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import '../buttons/buttons.css';
 
 type Props = {
     label: string,
 }
-export function Rectangle({ label }: Props) {
+export const Rectangle: FC<Props> = ({ label }) => {
     return (
-        <div>
-            <button
-                className="rectangle-button"
-                autoFocus>
-                {label}
-            </button>
-        </div>
+        <button
+            className="rectangle-button"
+            autoFocus>
+            {label}
+        </button>
     );
 }

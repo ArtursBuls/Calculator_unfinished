@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import '../buttons/buttons.css';
 
 type Props = {
@@ -6,15 +6,15 @@ type Props = {
     label: string,
     setNumbers: () => void
 }
-export function Prolate({ backgroundColor, label, setNumbers }: Props) {
-  
+export const Prolate: FC<Props> = ({ backgroundColor, label, setNumbers }) => {
+
     return (
         <div >
             <button
                 className="prolate-button"
                 style={{ backgroundColor }}
                 onClick={setNumbers}
-                >
+            >
                 {label}
             </button>
         </div>
